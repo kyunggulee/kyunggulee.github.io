@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyung Gu Lee | Political Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1813;
+      --mid:       #5a5650;
+      --faint:     #a09c97;
+      --rule:      #ddd8d2;
+      --bg:        #faf8f5;
+      --accent:    #2c4a7c;
+      --accent-lt: #e8edf5;
+      --serif:     'EB Garamond', Georgia, serif;
+      --sans:      'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      height: 60px;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .page { padding-top: 60px; }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+    }
+
+    section { padding: 5rem 0; border-bottom: 1px solid var(--rule); }
+    section:last-child { border-bottom: none; }
+
+    /* ── HERO ── */
+    #home { padding: 7rem 0 6rem; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .hero-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-affil {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--mid);
+      margin-bottom: 2rem;
+    }
+
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--mid);
+      max-width: 540px;
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+
+    .hero-links {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.55rem 1.2rem;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #1e3660; }
+
+    .btn-outline {
+      border: 1px solid var(--rule);
+      color: var(--mid);
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .avatar-wrap { width: 160px; flex-shrink: 0; }
+
+    .avatar {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: var(--accent-lt);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      border: 3px solid var(--rule);
+    }
+
+    .avatar svg { opacity: 0.35; }
+
+    /* ── SECTION HEADINGS ── */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      color: var(--ink);
+    }
+
+    /* ── RESEARCH ── */
+    .interests {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .tag {
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      font-weight: 400;
+      padding: 0.3rem 0.8rem;
+      background: var(--accent-lt);
+      color: var(--accent);
+      border-radius: 2px;
+      letter-spacing: 0.03em;
+    }
+
+    .research-blurb {
+      color: var(--mid);
+      font-size: 1rem;
+      line-height: 1.9;
+      max-width: 700px;
+    }
+
+    /* ── PAPERS ── */
+    .paper-list { list-style: none; }
+
+    .paper-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .paper-item:last-child { border-bottom: none; }
+
+    .paper-status {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 0.4rem;
+    }
+
+    .paper-status.published { color: #3a7a4a; }
+    .paper-status.forthcoming { color: #2c6a8a; }
+    .paper-status.wip { color: #b07230; }
+
+    .paper-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .paper-authors {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .paper-venue {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--mid);
+      margin-bottom: 0.8rem;
+    }
+
+    .paper-abstract {
+      font-size: 0.92rem;
+      color: var(--mid);
+      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .paper-abstract.open { display: block; }
+
+    .paper-actions {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    }
+
+    .paper-link {
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-lt);
+      transition: border-color 0.2s;
+    }
+    .paper-link:hover { border-color: var(--accent); }
+
+    .toggle-abstract {
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--faint);
+      background: none; border: none; cursor: pointer;
+      padding: 0; transition: color 0.2s;
+    }
+    .toggle-abstract:hover { color: var(--mid); }
+
+    /* ── CV ── */
+    .cv-section { margin-bottom: 3rem; }
+
+    .cv-heading {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cv-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+      align-items: start;
+    }
+
+    .cv-year {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--faint);
+      padding-top: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .cv-entry strong {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .cv-entry span {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--mid);
+    }
+
+    .cv-download { margin-top: 2rem; }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+
+    .contact-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .contact-value {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .contact-value a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-lt);
+      transition: border-color 0.2s;
+    }
+    .contact-value a:hover { border-color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--faint);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .avatar-wrap { order: -1; }
+      .avatar { width: 110px; height: 110px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .cv-row { grid-template-columns: 90px 1fr; }
+      .nav-links { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#home">Kyung Gu Lee</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#papers">Papers</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="hero-label">Political Scientist</p>
+          <h1>Kyung Gu Lee</h1>
+          <p class="hero-title">Assistant Professor, Department of Political Science and Sociology</p>
+          <p class="hero-affil">Korea Military Academy · Seoul, South Korea</p>
+          <p class="hero-bio">
+            I am a political scientist specializing in comparative and international political economy,
+            with a regional focus on East Asia — particularly Japan, Korea, and Taiwan.
+            My research examines electoral institutions, party strategy, and the political economy
+            of redistribution, trade and finance, using quantitative and qualitative methods.
+          </p>
+          <div class="hero-links">
+            <a class="btn btn-primary" href="#papers">View My Research</a>
+            <a class="btn btn-outline" href="KGLee_CV.pdf">Download CV</a>
+            <a class="btn btn-outline" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+        <div class="avatar-wrap">
+          <div class="avatar">
+            <img src="profile.jpg" alt="Kyung Gu Lee" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container fade-in">
+      <p class="section-label">Interests</p>
+      <h2>Research</h2>
+      <div class="interests">
+        <span class="tag">Comparative Political Economy</span>
+        <span class="tag">International Political Economy</span>
+        <span class="tag">Political Economy of Institutions</span>
+        <span class="tag">East Asian Politics</span>
+        <span class="tag">Electoral Systems</span>
+        <span class="tag">Japanese Politics</span>
+        <span class="tag">Korean Peninsula</span>
+      </div>
+      <p class="research-blurb">
+        My research sits at the intersection of comparative and international political economy,
+        with a focus on how electoral institutions shape party strategies and political outcomes
+        in East Asian Democracies. A central strand of my work investigates how electoral institutions shapes the strategic decisionmaking of politicians. 
+        For instance, how does the Mixed-Member system of Japanese Diet elections creates incentives for parties to field non-viable single-member district candidates, and crowd the district race, or how does the ruling party distribute geographically targetted goods in order to gain the most electoral benefits.
+        <br><br>
+        A second line of research examines the politics of North Korea: their political discourse and the strategies they employ domestically and externally for their survival. I employ a range of quantitative
+        methods, including panel regression with propensity score weighting, topic modeling,
+        and network centrality analysis, as well as an in-depth case study of the causal mechanism studied. My work has appeared in <em>Pacific Affairs</em>,
+        the <em>Japanese Journal of Political Science</em>, and <em>North Korean Studies Review</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- PAPERS -->
+  <section id="papers">
+    <div class="container fade-in">
+      <p class="section-label">Scholarship</p>
+      <h2>Working Papers &amp; Publications</h2>
+
+      <ul class="paper-list">
+
+        <!-- PAPER 1 – Forthcoming -->
+        <li class="paper-item">
+          <p class="paper-status forthcoming">Forthcoming</p>
+          <p class="paper-title">Strategic Oversupply: Non-majority Seeking Parties and Contamination Effects in Japan's Mixed-Member Majoritarian Elections</p>
+          <p class="paper-authors">Kyung Gu Lee</p>
+          <p class="paper-venue"><em>Japanese Journal of Political Science</em>, forthcoming</p>
+          <div class="paper-abstract">
+            This paper examines contamination effects in Japan's mixed-member majoritarian (MMM) electoral system,
+            focusing on non-majority seeking parties such as the JCP, JIP, DPFP, CDP, and Reiwa Shinsengumi.
+            Using electoral data from 2013 to 2025 and a two-way fixed effects panel regression with propensity
+            score weighting, I find that fielding a candidate in the single-member district (SMD) tier significantly
+            boosts a party's proportional representation (PR) vote share. The effect varies substantially by party
+            and candidate quality: credentialed candidates — those with prior political or professional experience —
+            generate larger contamination effects than non-credentialed candidates. Survey evidence further shows
+            that voters who weigh candidate characteristics are more responsive to candidate presence, except in
+            the case of the JCP, where high-quality candidate exposure can reduce support. These findings
+            illuminate the collective action dilemmas that contamination creates among opposition parties and
+            help explain the persistent fragmentation of Japan's party system.
+          </div>
+          <div class="paper-actions">
+            <a class="paper-link" href="Strategic_Oversupply.pdf">PDF (Accepted Version)</a>
+            <button class="toggle-abstract" onclick="toggleAbstract(this)">Abstract ↓</button>
+          </div>
+        </li>
+
+        <!-- PAPER 2 – Published -->
+        <li class="paper-item">
+          <p class="paper-status published">Published</p>
+          <p class="paper-title">The Mountain Is Moving, but Where To? Japan's 2025 Upper House Election and the Future of Japanese Politics</p>
+          <p class="paper-authors">Kyung Gu Lee</p>
+          <p class="paper-venue"><em>Pacific Affairs</em>, Vol. 99, Issue 1, pp. 102–117, 2026</p>
+          <div class="paper-abstract">
+            This perspective analyzes the 2025 House of Councillors election in Japan, which ended the Liberal Democratic Party (LDP)–Komeito coalition’s majority in both houses of the Diet. While not producing an opposition government, the outcome created a hung parliament and deepened political uncertainty. The LDP’s defeat reflected a convergence of factors: the slush fund scandal, Prime Minister Ishiba Shigeru’s blunders, and public dissatisfaction with rising inflation and rice prices. The election was also marked by the rise of populist challengers. The right-wing Sanseito won over 12 percent of the proportional vote, drawing support from former LDP voters, while the Democratic Party For The People expanded its profile as a pragmatic alternative. These developments suggest a gradual erosion of LDP dominance and a shift to multi-party system. The article concludes by assessing the aftermaths of the election and the implications for Japanese politics.
+          </div>
+          <div class="paper-actions">
+             <a class="paper-link" href="https://www.tandfonline.com/doi/full/10.1080/0030851X.2026.2626218">Publisher Link</a>
+            <button class="toggle-abstract" onclick="toggleAbstract(this)">Abstract ↓</button>
+          </div>
+        </li>
+
+        <!-- PAPER 3 – Published -->
+        <li class="paper-item">
+          <p class="paper-status published">Published</p>
+          <p class="paper-title">From Nation to State: Topic Model Analysis and Network Centrality Analysis of Nationalistic Discourse in the Rodong Sinmun</p>
+          <p class="paper-authors">Kyung Gu Lee, Hwajun Lee, Hooryang Lee</p>
+          <p class="paper-venue"><em>North Korean Studies Review</em>, Vol. 29, Issue 1, pp. 45–78, 2025 (In Korean)</p>
+          <div class="paper-abstract">
+            How is discourse about nationalism utilized in North Korea, and what patterns of 
+change has it undergone? While interest in North Korea’s nationalistic discourse has 
+grown since the regime’s declaration of “two Koreas” and hostile relations with South 
+Korea, the interpretation and use of the concept of “nation” have been politically 
+significant since the regime’s inception. This study examines the evolution of national 
+discourse under the Kim Jong-un regime, employing topic modeling and network 
+centrality analysis of North Korea’s Rodong Sinmun newspaper from 2012 to 2019. 
+Key findings reveal that North Korean national discourse adapts dynamically to political 
+events and regime priorities, with the concept of nation assuming varying importance 
+during nuclear tests and inter-Korean dialogue periods. Initially, discourse centered 
+on nation, peace, and unification, but after the 2017 declaration of state nuclear force 
+completion, nationalistic discourse gradually diminished, while discourse focused on 
+“state” and “homeland” became more prominent. This study highlights the flexibility of 
+North Korea’s use of nationalist rhetoric as a tool for governance, suggesting that the 
+regime’s nationalistic discourse will continue to evolve in response to political needs in 
+the future. Moreover, the weakening of nationalist discourse in North Korea, coupled 
+with the decline of national consciousness in South Korea, poses a challenge to existing 
+unification policies grounded in national identity. However, rather than hastily discarding 
+the concept of national unification, a more cautious approach is needed—one that takes 
+into account the national consciousness of the North Korean populace.
+          </div>
+          <div class="paper-actions">
+            <a class="paper-link" href="https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART003219297">Publisher Link</a>
+            <button class="toggle-abstract" onclick="toggleAbstract(this)">Abstract ↓</button>
+          </div>
+        </li>
+
+        <!-- PAPER 4 – Working Paper -->
+        <li class="paper-item">
+          <p class="paper-status wip">Working Paper</p>
+          <p class="paper-title">Core or Swing? The Strategic Allocation of Subsidies in Japanese Electoral Politics</p>
+          <p class="paper-authors">Kyung Gu Lee</p>
+          <p class="paper-venue">Presented at the 2025 International Political Science Association (IPSA) World Congress</p>
+          <div class="paper-abstract">
+            This paper investigates how governing parties in Japan strategically allocate subsidies
+            across electoral districts. Drawing on the distributive politics literature, it examines
+            whether the LDP targets core supporters or swing districts with intergovernmental transfers,
+            and how the mixed-member majoritarian system shapes these incentives across the SMD and PR tiers.
+          </div>
+          <div class="paper-actions">
+            <button class="toggle-abstract" onclick="toggleAbstract(this)">Abstract ↓</button>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <div class="container fade-in">
+      <p class="section-label">Curriculum Vitae</p>
+      <h2>Academic Profile</h2>
+
+      <div class="cv-section">
+        <p class="cv-heading">Education</p>
+        <div class="cv-row">
+          <span class="cv-year">2021–2023</span>
+          <div class="cv-entry">
+            <strong>M.A. in International Relations</strong>
+            <span>Seoul National University, Seoul, South Korea</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2017–2021</span>
+          <div class="cv-entry">
+            <strong>B.A. in Political Science and International Relations; B.A. in Economics</strong>
+            <span>Seoul National University — <em>Summa Cum Laude</em></span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">Jan–May 2020</span>
+          <div class="cv-entry">
+            <strong>Exchange Student</strong>
+            <span>George Washington University, Washington DC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <p class="cv-heading">Academic Positions</p>
+        <div class="cv-row">
+          <span class="cv-year">Oct 2025–May 2026</span>
+          <div class="cv-entry">
+            <strong>Assistant Professor (non-tenure track)</strong>
+            <span>Korea Military Academy, Seoul, South Korea</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">Jun 2023–Sep 2025</span>
+          <div class="cv-entry">
+            <strong>Lecturer</strong>
+            <span>Korea Military Academy, Seoul, South Korea</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <p class="cv-heading">Teaching</p>
+        <div class="cv-row">
+          <span class="cv-year">2023–2026</span>
+          <div class="cv-entry">
+            <strong>North Korean Studies</strong>
+            <span>Fall 2023, Spring 2024, Fall 2024, Spring 2025, Fall 2025, Spring 2026</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2023–2025</span>
+          <div class="cv-entry">
+            <strong>Theories of National Security</strong>
+            <span>Fall 2023, Spring 2025</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2024–2026</span>
+          <div class="cv-entry">
+            <strong>International Political Economy and Development</strong>
+            <span>Fall 2024, Fall 2025, Spring 2026</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2024</span>
+          <div class="cv-entry">
+            <strong>Understanding Political Economy</strong>
+            <span>Spring 2024, Fall 2024</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2024–2025</span>
+          <div class="cv-entry">
+            <strong>Constitution and Democratic Citizenship</strong>
+            <span>Fall 2024, Fall 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <p class="cv-heading">Honors &amp; Awards</p>
+        <div class="cv-row">
+          <span class="cv-year">Nov 2024</span>
+          <div class="cv-entry">
+            <strong>Excellence in Teaching Award</strong>
+            <span>Korea Military Academy</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">Dec 2021</span>
+          <div class="cv-entry">
+            <strong>KNDA Academic Paper Award</strong>
+            <span>Korea National Diplomatic Academy</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">Feb 2021</span>
+          <div class="cv-entry">
+            <strong>Global Leadership Award</strong>
+            <span>SNU Department of Political Science and International Relations — awarded to one graduate from an IR major</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">Feb 2021</span>
+          <div class="cv-entry">
+            <strong>Mancheong Award for Best Undergraduate Thesis</strong>
+            <span>SNU International Relations Major</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">Sep 2020</span>
+          <div class="cv-entry">
+            <strong>Army Chief of Staff Prize (1st Place)</strong>
+            <span>19th Hwarangdae Collegiate Forum on National Security</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <p class="cv-heading">Grants &amp; Scholarships</p>
+        <div class="cv-row">
+          <span class="cv-year">2022</span>
+          <div class="cv-entry">
+            <strong>Graduate Student Field Trip Grant</strong>
+            <span>Seoul National University Institute for Japanese Studies</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2021–2023</span>
+          <div class="cv-entry">
+            <strong>Yongwoon Scholarship for Graduate Students</strong>
+            <span>Yongwoon Foundation</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2017–2021</span>
+          <div class="cv-entry">
+            <strong>Merit-Based Scholarship</strong>
+            <span>Seoul National University</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <p class="cv-heading">Languages &amp; Skills</p>
+        <div class="cv-row">
+          <span class="cv-year">Languages</span>
+          <div class="cv-entry">
+            <span>Korean (native) · English (fluent) · Japanese (advanced)</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">Programming</span>
+          <div class="cv-entry">
+            <span>R · Stata · LaTeX</span>
+          </div>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">Service</span>
+          <div class="cv-entry">
+            <span>Reviewer, <em>Japanese Journal of Political Science</em></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-download">
+        <a class="btn btn-outline" href="KGLee_CV.pdf">↓ Download Full CV (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container fade-in">
+      <p class="section-label">Get in Touch</p>
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a href="mailto:byzantion@kma.ac.kr">byzantion@kma.ac.kr</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+82-10-8399-6063</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Affiliation</span>
+          <span class="contact-value">Korea Military Academy<br>Seoul, South Korea</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Academic Profiles</span>
+          <span class="contact-value">
+            <a href="#" target="_blank">Google Scholar</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Kyung Gu Lee · Korea Military Academy
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function toggleAbstract(btn) {
+    const item = btn.closest('.paper-item');
+    const abstract = item.querySelector('.paper-abstract');
+    const open = abstract.classList.toggle('open');
+    btn.textContent = open ? 'Abstract ↑' : 'Abstract ↓';
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
